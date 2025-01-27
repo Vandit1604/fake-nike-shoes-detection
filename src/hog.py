@@ -25,7 +25,7 @@ def extract_features(images):
 
 
 # Load the dataset
-data = pd.read_csv("../products.csv")
+data = pd.read_csv("/home/vandit/codes/fake-nike-shoes-detection/products.csv")
 
 # Preprocess the data
 data = data.dropna()
@@ -53,7 +53,7 @@ def load_image(image_path):
     return cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
 
-new_image = load_image("../test/new_product1.jpg")
+new_image = load_image("./home/vandit/codes/fake-nike-shoes-detection/test/new_product1.jpg")
 new_image = cv2.resize(new_image, (256, 256))
 features = hog(new_image, orientations=8, pixels_per_cell=(16, 16), cells_per_block=(1, 1))
 prediction = clf.predict([features])
